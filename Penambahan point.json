@@ -1,0 +1,210 @@
+[
+  {
+    "type": "class",
+    "class_id": "50",
+    "class_name": "StatusPendaftaranMataKuliah",
+    "KL": "status_pendaftaran_mata_kuliah",
+    "attributes": [
+      {
+        "attribute_type": "naming_attribute",
+        "attribute_name": "id_status_pendaftaran",
+        "data_type": "id"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "nama_mata_kuliah",
+        "data_type": "string"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "status_pendaftaran",
+        "default_value": "Terdaftar",
+        "data_type": "state"
+      }
+    ],
+    "states": [
+      {
+        "state_id": "1",
+        "state_name": "Terdaftar",
+        "state_value": "Terdaftar",
+        "state_type": "string",
+        "state_event": ["setTerdaftar", "onTerdaftar"]
+      },
+      {
+        "state_id": "2",
+        "state_name": "Dalam Antrian",
+        "state_value": "Dalam Antrian",
+        "state_type": "string",
+        "state_event": ["setDalamAntrian", "onDalamAntrian"]
+      },
+      {
+        "state_id": "3",
+        "state_name": "Menunggu Persetujuan Prodi",
+        "state_value": "Menunggu Persetujuan Prodi",
+        "state_type": "string",
+        "state_event": ["setMenungguPersetujuanProdi", "onMenungguPersetujuanProdi"]
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "class_id": "56",
+    "class_name": "PengaturJadwalPemakaianLaboratorium",
+    "KL": "pengatur_jadwal_pemakaian_laboratorium",
+    "attributes": [
+      {
+        "attribute_type": "naming_attribute",
+        "attribute_name": "id_pengatur_jadwal",
+        "data_type": "id"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "jadwal_pemakaian",
+        "data_type": "timer_handle"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "info_laboratorium",
+        "data_type": "instance_handle"
+      }
+    ],
+    "functions": [
+      {
+        "function_name": "aturJadwalPemakaian",
+        "description": "Mengatur jadwal pemakaian laboratorium"
+      },
+      {
+        "function_name": "lihatInfoLaboratorium",
+        "description": "Melihat informasi laboratorium"
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "class_id": "101",
+    "class_name": "ProdiInformatika",
+    "KL": "prodi_informatika",
+    "attributes": [
+      {
+        "attribute_type": "naming_attribute",
+        "attribute_name": "id_prodi",
+        "data_type": "id"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "nama_mahasiswa",
+        "data_type": "string"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "info_mahasiswa",
+        "data_type": "instance_handle"
+      }
+    ],
+    "functions": [
+      {
+        "function_name": "tambahMahasiswa",
+        "description": "Menambahkan data mahasiswa"
+      },
+      {
+        "function_name": "lihatInfoProdi",
+        "description": "Melihat informasi prodi informatika"
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "class_id": "102",
+    "class_name": "Peminatan",
+    "KL": "peminatan",
+    "set_id": "DaftarPeminatan",
+    "handles": [
+      {
+        "handle_id": "PPL",
+        "attributes": [
+          {
+            "attribute_type": "naming_attribute",
+            "attribute_name": "id_peminatan",
+            "data_type": "id"
+          },
+          {
+            "attribute_type": "descriptive_attribute",
+            "attribute_name": "nama_mahasiswa",
+            "data_type": "string"
+          },
+          {
+            "attribute_type": "descriptive_attribute",
+            "attribute_name": "info_mahasiswa",
+            "data_type": "instance_handle"
+          }
+        ],
+        "functions": [
+          {
+            "function_name": "tambahMahasiswa",
+            "description": "Menambahkan data mahasiswa"
+          },
+          {
+            "function_name": "lihatInfoPeminatan",
+            "description": "Melihat informasi peminatan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "class_id": "55",
+    "class_name": "FasilitasKampus",
+    "KL": "fasilitas_kampus",
+    "attributes": [
+      {
+        "attribute_type": "naming_attribute",
+        "attribute_name": "id_fasilitas",
+        "data_type": "id"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "nama_fasilitas",
+        "data_type": "string"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "fasilitas_data",
+        "data_type": "component_handle"
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "class_id": "54",
+    "class_name": "AcaraWisuda",
+    "KL": "acara_wisuda",
+    "attributes": [
+      {
+        "attribute_type": "naming_attribute",
+        "attribute_name": "id_acara_wisuda",
+        "data_type": "id"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "tanggal_acara",
+        "data_type": "timestamp"
+      },
+      {
+        "attribute_type": "descriptive_attribute",
+        "attribute_name": "tempat_acara",
+        "data_type": "string"
+      }
+    ],
+    "functions": [
+      {
+        "function_name": "aturTanggalAcara",
+        "description": "Mengatur tanggal acara wisuda"
+      },
+      {
+        "function_name": "aturTempatAcara",
+        "description": "Mengatur tempat acara wisuda"
+      }
+    ]
+  }
+]
