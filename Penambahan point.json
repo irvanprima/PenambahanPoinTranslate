@@ -1,9 +1,9 @@
-[
-  {
+{
+    //contoh data type state
     "type": "class",
     "class_id": "50",
-    "class_name": "StatusPendaftaranMataKuliah",
-    "KL": "status_pendaftaran_mata_kuliah",
+    "class_name": "DaftarMatkul",
+    "KL": "DafM",
     "attributes": [
       {
         "attribute_type": "naming_attribute",
@@ -47,115 +47,11 @@
     ]
   },
   {
-    "type": "class",
-    "class_id": "56",
-    "class_name": "PengaturJadwalPemakaianLaboratorium",
-    "KL": "pengatur_jadwal_pemakaian_laboratorium",
-    "attributes": [
-      {
-        "attribute_type": "naming_attribute",
-        "attribute_name": "id_pengatur_jadwal",
-        "data_type": "id"
-      },
-      {
-        "attribute_type": "descriptive_attribute",
-        "attribute_name": "jadwal_pemakaian",
-        "data_type": "timer_handle"
-      },
-      {
-        "attribute_type": "descriptive_attribute",
-        "attribute_name": "info_laboratorium",
-        "data_type": "instance_handle"
-      }
-    ],
-    "functions": [
-      {
-        "function_name": "aturJadwalPemakaian",
-        "description": "Mengatur jadwal pemakaian laboratorium"
-      },
-      {
-        "function_name": "lihatInfoLaboratorium",
-        "description": "Melihat informasi laboratorium"
-      }
-    ]
-  },
-  {
-    "type": "class",
-    "class_id": "101",
-    "class_name": "ProdiInformatika",
-    "KL": "prodi_informatika",
-    "attributes": [
-      {
-        "attribute_type": "naming_attribute",
-        "attribute_name": "id_prodi",
-        "data_type": "id"
-      },
-      {
-        "attribute_type": "descriptive_attribute",
-        "attribute_name": "nama_mahasiswa",
-        "data_type": "string"
-      },
-      {
-        "attribute_type": "descriptive_attribute",
-        "attribute_name": "info_mahasiswa",
-        "data_type": "instance_handle"
-      }
-    ],
-    "functions": [
-      {
-        "function_name": "tambahMahasiswa",
-        "description": "Menambahkan data mahasiswa"
-      },
-      {
-        "function_name": "lihatInfoProdi",
-        "description": "Melihat informasi prodi informatika"
-      }
-    ]
-  },
-  {
-    "type": "class",
-    "class_id": "102",
-    "class_name": "Peminatan",
-    "KL": "peminatan",
-    "set_id": "DaftarPeminatan",
-    "handles": [
-      {
-        "handle_id": "PPL",
-        "attributes": [
-          {
-            "attribute_type": "naming_attribute",
-            "attribute_name": "id_peminatan",
-            "data_type": "id"
-          },
-          {
-            "attribute_type": "descriptive_attribute",
-            "attribute_name": "nama_mahasiswa",
-            "data_type": "string"
-          },
-          {
-            "attribute_type": "descriptive_attribute",
-            "attribute_name": "info_mahasiswa",
-            "data_type": "instance_handle"
-          }
-        ],
-        "functions": [
-          {
-            "function_name": "tambahMahasiswa",
-            "description": "Menambahkan data mahasiswa"
-          },
-          {
-            "function_name": "lihatInfoPeminatan",
-            "description": "Melihat informasi peminatan"
-          }
-        ]
-      }
-    ]
-  },
-  {
+    //contoh instance handle
     "type": "class",
     "class_id": "55",
     "class_name": "FasilitasKampus",
-    "KL": "fasilitas_kampus",
+    "KL": "FasK",
     "attributes": [
       {
         "attribute_type": "naming_attribute",
@@ -167,44 +63,119 @@
         "attribute_name": "nama_fasilitas",
         "data_type": "string"
       },
+ 
+        
+      //bagian yang related ke class lain
       {
-        "attribute_type": "descriptive_attribute",
-        "attribute_name": "fasilitas_data",
-        "data_type": "component_handle"
+        "attribute_type": "related_component",
+        "attribute_name": "nama_fasilitas",
+        "data_type": "inst_ref",
+
+        "related_class_id": "9",
+        "related_class_name": "fakultas"
       }
+     
     ]
   },
   {
+    //contoh instance handle set
     "type": "class",
-    "class_id": "54",
-    "class_name": "AcaraWisuda",
-    "KL": "acara_wisuda",
+    "class_id": "58",
+    "class_name": "Peminatan",
+    "KL": "Pem",
     "attributes": [
       {
         "attribute_type": "naming_attribute",
-        "attribute_name": "id_acara_wisuda",
+        "attribute_name": "id_peminatan",
         "data_type": "id"
       },
       {
         "attribute_type": "descriptive_attribute",
-        "attribute_name": "tanggal_acara",
-        "data_type": "timestamp"
+        "attribute_name": "nama_peminatan",
+        "data_type": "string"
+      },
+     
+        
+      //bagian yang related ke class lain
+      {
+        "attribute_type": "related_component",
+        "attribute_name": "nama_peminatan",
+        "data_type": "inst_ref_set",
+
+        "related_class_id": "1",
+        "related_class_name": "mahasiswa"
+      }
+      
+    ]
+  },
+  
+  {
+    //contoh time handle
+    "type": "class",
+    "class_id": "59",
+    "class_name": "PembayaranUKT",
+    "KL": "PemUKT",
+    "attributes": [
+      {
+        "attribute_type": "naming_attribute",
+        "attribute_name": "id_pembayaran_ukt",
+        "data_type": "id"
       },
       {
         "attribute_type": "descriptive_attribute",
-        "attribute_name": "tempat_acara",
+        "attribute_name": "nama_pembayaran_ukt",
         "data_type": "string"
       }
-    ],
-    "functions": [
+
+      //bagian yang related ke class lain
       {
-        "function_name": "aturTanggalAcara",
-        "description": "Mengatur tanggal acara wisuda"
-      },
-      {
-        "function_name": "aturTempatAcara",
-        "description": "Mengatur tempat acara wisuda"
+        "attribute_type": "related_component",
+        "attribute_name": "TIMER??",
+        "data_type": "inst_ref_<timer>",
+
+        "related_class_KL": "TIM",
+        "related_class_name": "Timer"
       }
-    ]
-  }
-]
+
+    ],
+  },
+
+  //misal aja, kalau dah bener baru aku masukin ke tempet akhsan :v
+  {
+    "type": "class",
+    "class_id": "2",
+    "class_name": "dosen",
+    "KL": "dsn",
+    "attributes": [
+        {
+            "attribute_type": "naming_attribute",
+            "attribute_name": "nip",
+            "data_type": "id"
+        },
+        {
+            "attribute_type": "descriptive_attribute",
+            "attribute_name": "status",
+            "default_value": "dsn_status.aktif",
+            "data_type": "state"
+        },
+        {
+            "attribute_type": "descriptive_attribute",
+            "attribute_name": "nama",
+            "data_type": "string"
+        },
+
+        //event handle
+        {
+            "event_id": "1",
+            "event_name": "PencutianNIlaiBuruk",
+            
+            "class_id": "1",
+            "state_id": "2",
+            "state_name": "cuti",
+            "data_type": "inst_event"
+        }
+    ],
+  },
+
+  //component handle nyusul
+
